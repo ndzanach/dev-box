@@ -1,7 +1,7 @@
-# DevBox
+# DevBox (work in progress)
 
 ## 🧩 Problem We're Solving
-Developers often spend too much time setting up their local environments. This portfolio explores solutions that allow anyone to spin up a ready-to-use environment — backup, export, and resume work seamlessly across machines, whether on Windows or macOS.
+Developers often spend too much time setting up their local environments. This setup explores solutions that allow anyone to spin up a ready-to-use environment — backup, export, and resume work seamlessly across machines, whether on Windows or macOS.
 
 ## 🔧 Tech Stack
 - **FastAPI** – backend APIs and service endpoints
