@@ -7,6 +7,7 @@ Developers often spend too much time setting up their local environments. This p
 - **FastAPI** – backend APIs and service endpoints
 - **Docker** – containerization for consistent dev environments
 - **Streamlit** – lightweight UIs for tool interaction and monitoring
+- **MySQL** – structured data storage and persistence layer
 
 ## 📜 License
 MIT

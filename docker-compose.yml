@@ -1,0 +1,55 @@
+services:
+
+  api:
+    build:
+      context: ./api
+    container_name: api
+    ports:
+      - "8005:8000"
+    volumes:
+      - ./api/app:/app/app  
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - shared-net
+
+  web:
+    build:
+      context: ./web
+    container_name: web
+    ports:
+      - "8506:8502"
+    depends_on:
+      - api
+      - mysql
+    networks:
+      - shared-net
+    volumes:
+      - ./web/main.py:/app/main.py
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: appdb
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - shared-net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+networks:
+  shared-net:
+    external: true
+
+volumes:
+  mysql_data:
+

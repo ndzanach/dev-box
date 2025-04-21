@@ -1,0 +1,5 @@
+streamlit
+requests
+sseclient-py
+streamlit-chat
+websocket-client
